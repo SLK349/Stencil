@@ -8,6 +8,7 @@ import { Component, h, State, Event, EventEmitter } from '@stencil/core';
 export class LoginForm {
   @State() email: string = '';
   @State() password: string = '';
+  @State() code: string = '';
 
   @Event() loginSucess: EventEmitter;
   @Event() loginError: EventEmitter;
@@ -20,6 +21,10 @@ export class LoginForm {
     this.password = (event.target as HTMLInputElement).value;
   };
 
+  private handleCodeChange = (event: Event) => {
+    this.code = (event.target as HTMLInputElement).value;
+  }
+
   private handleSubmit = async (event: Event) => {
     event.preventDefault();
     try {
@@ -28,7 +33,7 @@ export class LoginForm {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email: this.email, password: this.password }),
+        body: JSON.stringify({ email: this.email, password: this.password, code: this.code }),
       });
       if (!response.ok) {
         throw new Error(await response.text());
@@ -48,6 +53,9 @@ export class LoginForm {
 
         <label>Password</label>
         <input type="password" value={this.password} onInput={event => this.handlePasswordChange(event)} />
+
+        <label>Code</label>
+        <input type="text" value={this.code} onInput={event => this.handleCodeChange(event)} />
 
         <button type="submit">Login</button>
       </form>
