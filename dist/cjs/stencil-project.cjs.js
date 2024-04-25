@@ -19,7 +19,7 @@ var patchBrowser = () => {
 
 patchBrowser().then(async (options) => {
   await appGlobals.globalScripts();
-  return index.bootstrapLazy([["login-form_2.cjs",[[1,"login-form",{"email":[32],"password":[32]}],[1,"my-component",{"first":[1],"middle":[1],"last":[1]}]]]], options);
+  return index.bootstrapLazy([["login-form_2.cjs",[[1,"login-form",{"email":[32],"password":[32],"code":[32]}],[1,"my-component",{"first":[1],"middle":[1],"last":[1]}]]]], options);
 });
 
 exports.setNonce = index.setNonce;

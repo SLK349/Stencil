@@ -16,7 +16,7 @@ var patchBrowser = () => {
 
 patchBrowser().then(async (options) => {
   await globalScripts();
-  return bootstrapLazy([["login-form_2",[[1,"login-form",{"email":[32],"password":[32]}],[1,"my-component",{"first":[1],"middle":[1],"last":[1]}]]]], options);
+  return bootstrapLazy([["login-form_2",[[1,"login-form",{"email":[32],"password":[32],"code":[32]}],[1,"my-component",{"first":[1],"middle":[1],"last":[1]}]]]], options);
 });
 
 //# sourceMappingURL=stencil-project.js.map

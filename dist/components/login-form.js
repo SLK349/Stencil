@@ -16,6 +16,9 @@ const LoginForm$1 = /*@__PURE__*/ proxyCustomElement(class LoginForm extends H {
         this.handlePasswordChange = (event) => {
             this.password = event.target.value;
         };
+        this.handleCodeChange = (event) => {
+            this.code = event.target.value;
+        };
         this.handleSubmit = async (event) => {
             event.preventDefault();
             try {
@@ -24,7 +27,7 @@ const LoginForm$1 = /*@__PURE__*/ proxyCustomElement(class LoginForm extends H {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ email: this.email, password: this.password }),
+                    body: JSON.stringify({ email: this.email, password: this.password, code: this.code }),
                 });
                 if (!response.ok) {
                     throw new Error(await response.text());
@@ -38,14 +41,16 @@ const LoginForm$1 = /*@__PURE__*/ proxyCustomElement(class LoginForm extends H {
         };
         this.email = '';
         this.password = '';
+        this.code = '';
     }
     render() {
-        return (h("form", { key: '3841a10ad365720b31af0974bfa40bca0b1adb35', onSubmit: event => this.handleSubmit(event) }, h("label", { key: '7760ddb80e2a82b1beb75398407ade57554f8c00' }, "Email"), h("input", { key: 'a80e7bc8f31c9a22533fbcf8e6a0c3d588d9557c', type: "email", value: this.email, onInput: event => this.handleEmailChange(event) }), h("label", { key: '3090044b5d463b3ead5ea6f9fcc12dd91bcc882a' }, "Password"), h("input", { key: 'a2166fb2cc2fb35398a0f726d2d1c222710e0be0', type: "password", value: this.password, onInput: event => this.handlePasswordChange(event) }), h("button", { key: '26938e1753d9864cf173431530e1367a8bb78c51', type: "submit" }, "Login")));
+        return (h("form", { key: 'caa2c6dc60e9c4164d14acf93fa16e29c80d8d4e', onSubmit: event => this.handleSubmit(event) }, h("label", { key: 'd479c90c6d2103d96cbc06a7c6d22bb85a8734e4' }, "Email"), h("input", { key: '971f52ade2936662f9e9fc638d96547e196dba9c', type: "email", value: this.email, onInput: event => this.handleEmailChange(event) }), h("label", { key: '118e8a06c7ab0ad54c3d40a7e2390635f168492e' }, "Password"), h("input", { key: 'b4ca6a608b326f60c67f1e63d2bfa8e5e07171e9', type: "password", value: this.password, onInput: event => this.handlePasswordChange(event) }), h("label", { key: '702df3a4a0c33238ce10b4b8b00dc095b8b1a638' }, "Code"), h("input", { key: '0fb62040201b24d1bad5ea076c6b02c1d34eae0f', type: "text", value: this.code, onInput: event => this.handleCodeChange(event) }), h("button", { key: 'fb51309b02f8ec51d7af3fe5a47a29abeac1bc82', type: "submit" }, "Login")));
     }
     static get style() { return LoginFormStyle0; }
 }, [1, "login-form", {
         "email": [32],
-        "password": [32]
+        "password": [32],
+        "code": [32]
     }]);
 function defineCustomElement$1() {
     if (typeof customElements === "undefined") {
