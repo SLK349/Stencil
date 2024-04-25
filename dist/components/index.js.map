@@ -1,1 +1,1 @@
-{"file":"index.js","mappings":";","names":[],"sources":[],"sourcesContent":[],"version":3}
+{"file":"index.js","mappings":";;;;AACO,MAAM,aAAa,GAAGA,UAAe;;","names":["appGlobalScript"],"sources":["@stencil/core/internal/app-globals"],"sourcesContent":["import appGlobalScript from '/Users/simonlascaud/Documents/SSO/stencil-project/node_modules/@ionic/core/dist/collection/global/ionic-global.js';\nexport const globalScripts = appGlobalScript;\n"],"version":3}

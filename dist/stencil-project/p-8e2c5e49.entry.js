@@ -1,0 +1,2 @@
+import{r as s,h as t,H as o,e}from"./p-df30d222.js";import{g as i}from"./p-64733d3b.js";const n=":host{display:none}";const r=n;const a=class{constructor(t){s(this,t);this.inputId=`ion-selopt-${c++}`;this.disabled=false;this.value=undefined}render(){return t(o,{key:"6fa504ac5597098086050c0f517a03be8b8032c9",role:"option",id:this.inputId,class:i(this)})}get el(){return e(this)}};let c=0;a.style=r;export{a as ion_select_option};
+//# sourceMappingURL=p-8e2c5e49.entry.js.map

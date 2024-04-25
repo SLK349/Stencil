@@ -1,0 +1,2 @@
+import{r as o,h as s,H as c}from"./p-df30d222.js";import{c as t}from"./p-100c2286.js";import{g as r}from"./p-64733d3b.js";const e=":host(.ion-color){color:var(--ion-color-base)}";const d=e;const a=class{constructor(s){o(this,s);this.color=undefined}render(){const o=r(this);return s(c,{key:"096d8ca01301500d61d9e92299e0cc78c2ad86e3",class:t(this.color,{[o]:true})},s("slot",{key:"9399d939ec4f134c24c29bda8857cd348259c666"}))}};a.style=d;export{a as ion_text};
+//# sourceMappingURL=p-0dc681ec.entry.js.map

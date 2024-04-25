@@ -1,4 +1,5 @@
 import { EventEmitter } from '../../stencil-public-runtime';
+import './toast.css';
 export declare class LoginForm {
     email: string;
     password: string;
@@ -9,5 +10,6 @@ export declare class LoginForm {
     private handlePasswordChange;
     private handleCodeChange;
     private handleSubmit;
+    private presentToast;
     render(): any;
 }

@@ -1,4 +1,6 @@
 import { Component, h, State, Event, EventEmitter } from '@stencil/core';
+import { toastController } from '@ionic/core';
+import './toast.css';
 
 @Component({
   tag: 'login-form',
@@ -23,7 +25,7 @@ export class LoginForm {
 
   private handleCodeChange = (event: Event) => {
     this.code = (event.target as HTMLInputElement).value;
-  }
+  };
 
   private handleSubmit = async (event: Event) => {
     event.preventDefault();
@@ -40,25 +42,38 @@ export class LoginForm {
       }
       const data = await response.json();
       this.loginSucess.emit(data);
+      await this.presentToast('Connexion réussie');
     } catch (error) {
       this.loginError.emit(error.message);
+      await this.presentToast('Erreur lors de la connexion');
     }
   };
 
+  private async presentToast(message: string) {
+    const toast = await toastController.create({
+      message: message,
+      duration: 2500,
+      cssClass: 'toast-message',
+    });
+    await toast.present();
+  }
+
   render() {
     return (
-      <form onSubmit={event => this.handleSubmit(event)}>
-        <label>Email</label>
-        <input type="email" value={this.email} onInput={event => this.handleEmailChange(event)} />
+      <div class="container">
+        <form onSubmit={event => this.handleSubmit(event)}>
+          <label>Email</label>
+          <input type="email" value={this.email} onInput={event => this.handleEmailChange(event)} />
 
-        <label>Password</label>
-        <input type="password" value={this.password} onInput={event => this.handlePasswordChange(event)} />
+          <label>Password</label>
+          <input type="password" value={this.password} onInput={event => this.handlePasswordChange(event)} />
 
-        <label>Code</label>
-        <input type="text" value={this.code} onInput={event => this.handleCodeChange(event)} />
+          <label>Code</label>
+          <input type="text" value={this.code} onInput={event => this.handleCodeChange(event)} />
 
-        <button type="submit">Login</button>
-      </form>
+          <button type="submit">Login</button>
+        </form>
+      </div>
     );
   }
 }

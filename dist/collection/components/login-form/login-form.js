@@ -1,4 +1,6 @@
 import { h } from "@stencil/core";
+import { toastController } from "@ionic/core";
+import "./toast.css";
 export class LoginForm {
     constructor() {
         this.handleEmailChange = (event) => {
@@ -25,17 +27,27 @@ export class LoginForm {
                 }
                 const data = await response.json();
                 this.loginSucess.emit(data);
+                await this.presentToast('Connexion réussie');
             }
             catch (error) {
                 this.loginError.emit(error.message);
+                await this.presentToast('Erreur lors de la connexion');
             }
         };
         this.email = '';
         this.password = '';
         this.code = '';
     }
+    async presentToast(message) {
+        const toast = await toastController.create({
+            message: message,
+            duration: 2500,
+            cssClass: 'toast-message',
+        });
+        await toast.present();
+    }
     render() {
-        return (h("form", { key: 'caa2c6dc60e9c4164d14acf93fa16e29c80d8d4e', onSubmit: event => this.handleSubmit(event) }, h("label", { key: 'd479c90c6d2103d96cbc06a7c6d22bb85a8734e4' }, "Email"), h("input", { key: '971f52ade2936662f9e9fc638d96547e196dba9c', type: "email", value: this.email, onInput: event => this.handleEmailChange(event) }), h("label", { key: '118e8a06c7ab0ad54c3d40a7e2390635f168492e' }, "Password"), h("input", { key: 'b4ca6a608b326f60c67f1e63d2bfa8e5e07171e9', type: "password", value: this.password, onInput: event => this.handlePasswordChange(event) }), h("label", { key: '702df3a4a0c33238ce10b4b8b00dc095b8b1a638' }, "Code"), h("input", { key: '0fb62040201b24d1bad5ea076c6b02c1d34eae0f', type: "text", value: this.code, onInput: event => this.handleCodeChange(event) }), h("button", { key: 'fb51309b02f8ec51d7af3fe5a47a29abeac1bc82', type: "submit" }, "Login")));
+        return (h("div", { key: '85676e8b4757a31b559115f3a48fd7d770241f3a', class: "container" }, h("form", { key: '0c0c075d26c1659e4f1fd49d974aad74406505a1', onSubmit: event => this.handleSubmit(event) }, h("label", { key: 'df10f580a68f3b40856640c498c33ab01a19f9c7' }, "Email"), h("input", { key: '4ac005cce117987333373791e40a37565e26f7d2', type: "email", value: this.email, onInput: event => this.handleEmailChange(event) }), h("label", { key: 'c756a645d2833100bf9d7873ef24315ad53f036f' }, "Password"), h("input", { key: '52036afc8f88977b7ea88c193988dd648a62016d', type: "password", value: this.password, onInput: event => this.handlePasswordChange(event) }), h("label", { key: '4a90864dfb11d44aa0a9ffb1d953cee02a60b63e' }, "Code"), h("input", { key: 'd06268449bea481ad3e72626176cfbc877a52102', type: "text", value: this.code, onInput: event => this.handleCodeChange(event) }), h("button", { key: '08d48ba9c6d10da79ce8bc0f24c240ab1078d996', type: "submit" }, "Login"))));
     }
     static get is() { return "login-form"; }
     static get encapsulation() { return "shadow"; }

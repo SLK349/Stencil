@@ -1,0 +1,2 @@
+import{r as o,h as s,H as t}from"./p-df30d222.js";import{g as r}from"./p-64733d3b.js";const e="ion-item-group{display:block}";const i=e;const c="ion-item-group{display:block}";const n=c;const p=class{constructor(s){o(this,s)}render(){const o=r(this);return s(t,{key:"f9ffe0290d3fa546494fe55f952d8554f2a8abf8",role:"group",class:{[o]:true,[`item-group-${o}`]:true,item:true}})}};p.style={ios:i,md:n};export{p as ion_item_group};
+//# sourceMappingURL=p-ce74b42a.entry.js.map
